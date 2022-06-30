@@ -1,4 +1,4 @@
-import { LayoutProps } from "@/models/index";
+import { LayoutProps } from "../../models/index";
 import React from "react";
 
 export function MainLayout({ children }: LayoutProps) {

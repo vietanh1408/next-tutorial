@@ -15,9 +15,9 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@/models/*": ["./models/*"],
-      "@/axios/*": ["./axios/*"],
-      "@/hooks/*": ["./hooks/*"]
+      "@/models/*": ["./src/models/*"],
+      "@/axios/*": ["./src/axios/*"],
+      "@/hooks/*": ["./src/hooks/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
