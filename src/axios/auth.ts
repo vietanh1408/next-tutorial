@@ -1,4 +1,4 @@
-import { ILoginPayload, IRegisterPayload } from '../models/index';
+import { ILoginPayload, IRegisterPayload } from '../models';
 import axiosClient from './axios-client';
 
 export const authApi = {

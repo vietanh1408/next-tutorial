@@ -1,5 +1,5 @@
 import { EmptyLayout } from '@/components/layout';
-import { AppPropsWithLayout } from '@/models/index';
+import { AppPropsWithLayout } from '@/models';
 import createEmotionCache from '@/utils/create-emotion-cache';
 import theme from '@/utils/theme';
 import { CacheProvider } from '@emotion/react';

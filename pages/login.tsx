@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
-import { useAuth } from '@/hooks/index';
+import { useAuth } from '@/hooks';
 
 const LoginPage: React.FC = () => {
 	const router = useRouter();

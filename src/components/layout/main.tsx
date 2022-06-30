@@ -1,4 +1,4 @@
-import { LayoutProps } from '@/models/index';
+import { LayoutProps } from '@/models';
 import React from 'react';
 import { Container, Stack } from '@mui/material';
 import Header from '../common/header';

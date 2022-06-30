@@ -1,5 +1,5 @@
 import { MainLayout } from '@/components/layout';
-import { NextPageWithLayout } from '@/models/index';
+import { NextPageWithLayout } from '@/models';
 import { Box } from '@mui/material';
 import Head from 'next/head';
 import Image from 'next/image';
