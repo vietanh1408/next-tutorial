@@ -6,7 +6,9 @@ interface ProductDetailProps {
 }
 
 const ProductDetail = () => {
-  const { data, error, mutate, isValidating } = useSWR(`/products`);
+  const { data, error, mutate, isValidating } = useSWR(`/products`, {
+    revalidateOnFocus: false,
+  });
 
   console.log("data: ", data);
 

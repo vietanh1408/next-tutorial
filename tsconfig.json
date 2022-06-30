@@ -16,7 +16,8 @@
     "incremental": true,
     "paths": {
       "@/models/*": ["./models/*"],
-      "@/axios/*": ["./axios/*"]
+      "@/axios/*": ["./axios/*"],
+      "@/hooks/*": ["./hooks/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

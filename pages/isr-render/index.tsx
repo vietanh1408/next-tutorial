@@ -1,6 +1,5 @@
 import { GetStaticProps } from "next";
-import React from "react";
-import { MainLayout } from "../../components/layout";
+import AdminLayout from "../../components/layout/admin";
 
 interface IArticle {
   author: string;
@@ -51,6 +50,6 @@ export const getStaticProps: GetStaticProps<ISRRenderProps> = async () => {
   };
 };
 
-ISRRender.Layout = MainLayout;
+ISRRender.Layout = AdminLayout;
 
 export default ISRRender;
