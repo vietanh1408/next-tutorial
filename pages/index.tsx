@@ -1,10 +1,10 @@
+import { MainLayout } from '@/components/layout';
+import { NextPageWithLayout } from '@/models/index';
+import { Box } from '@mui/material';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import { MainLayout } from '@/components/layout';
-import { NextPageWithLayout } from '@/models/index';
 import styles from '../styles/Home.module.css';
-import { Button } from '@mui/material';
 
 const Home: NextPageWithLayout = () => {
 	const a = '';
@@ -16,15 +16,11 @@ const Home: NextPageWithLayout = () => {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			<Link href={'/blog'} passHref>
-				<Button color="success">Blog</Button>
-			</Link>
-			<Link href={'/work'} passHref>
-				<Button color="success">Work</Button>
-			</Link>
-			<Link href={'/login'} passHref>
-				<Button color="success">Login</Button>
-			</Link>
+			<Box sx={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
+				<Link href={'/blog'}>Blog</Link>
+				<Link href={'/work'}>Work</Link>
+				<Link href={'/login'}>Login</Link>
+			</Box>
 
 			<main className={styles.main}>
 				<h1 className={styles.title}>
