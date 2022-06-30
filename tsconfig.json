@@ -17,6 +17,7 @@
     "baseUrl": "src",
     "paths": {
       "@/*": ["./*"],
+      "@/api-configure/*": ["/api-configure/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
