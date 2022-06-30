@@ -1,36 +1,36 @@
-import useSWR from "swr";
-import { PublicConfiguration } from "swr/dist/types";
-import { authApi } from "../axios";
-import { ILoginPayload } from "../models";
+import useSWR from 'swr';
+import { PublicConfiguration } from 'swr/dist/types';
+import { authApi } from '@/axios/index';
+import { ILoginPayload } from '@/models/index';
 
 export const useAuth = (options?: Partial<PublicConfiguration>) => {
-  const {
-    data: profile,
-    error,
-    mutate,
-  } = useSWR("/users/profile", {
-    dedupingInterval: 60 * 60 * 1000,
-    revalidateOnFocus: false,
-    ...options,
-  });
+	const {
+		data: profile,
+		error,
+		mutate,
+	} = useSWR('/users/profile', {
+		dedupingInterval: 60 * 60 * 1000,
+		revalidateOnFocus: false,
+		...options,
+	});
 
-  const firstLoading = profile === undefined && error === undefined;
+	const firstLoading = profile === undefined && error === undefined;
 
-  const login = async (payload: ILoginPayload) => {
-    await authApi.login(payload);
-    await mutate();
-  };
+	const login = async (payload: ILoginPayload) => {
+		await authApi.login(payload);
+		await mutate();
+	};
 
-  const logout = async () => {
-    await authApi.logout();
-    mutate(null, false);
-  };
+	const logout = async () => {
+		await authApi.logout();
+		mutate(null, false);
+	};
 
-  return {
-    profile,
-    error,
-    login,
-    logout,
-    firstLoading,
-  };
+	return {
+		profile,
+		error,
+		login,
+		logout,
+		firstLoading,
+	};
 };

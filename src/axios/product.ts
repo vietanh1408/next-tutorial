@@ -1,7 +1,7 @@
-import axiosClient from "./axios-client";
+import axiosClient from './axios-client';
 
 export const productApi = {
-  getAll() {
-    return axiosClient.get("/products");
-  },
+	getAll() {
+		return axiosClient.get('/products');
+	},
 };
