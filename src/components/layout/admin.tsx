@@ -1,5 +1,5 @@
-import { LayoutProps } from '../../models/common';
 import Link from 'next/link';
+import { LayoutProps } from '../../models/common';
 import Auth from '../common/auth';
 
 const AdminLayout = ({ children }: LayoutProps) => {

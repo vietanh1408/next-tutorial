@@ -5,7 +5,7 @@
 		"node": true
 	},
 	"ignorePatterns": ["**/env.js", "**/*.config.js"],
-	"extends": ["airbnb-typescript", "next/core-web-vitals", "prettier"],
+	"extends": ["next/core-web-vitals"],
 	"parser": "@typescript-eslint/parser",
 	"parserOptions": {
 		"ecmaFeatures": {
@@ -15,7 +15,7 @@
 		"sourceType": "module",
 		"project": "./tsconfig.json"
 	},
-	"plugins": ["import", "prettier", "unused-imports", "simple-import-sort"],
+	"plugins": ["import"],
 	"rules": {
 		// default rules
 		"semi": ["error", "always"],
@@ -42,41 +42,7 @@
 		"@typescript-eslint/default-param-last": ["off"],
 
 		// import rules
-		"import/extensions": ["off"],
-
-		// prettier rules
-		"prettier/prettier": ["error", { "endOfLine": "auto" }],
-
-		// unused imports rules
-		"unused-imports/no-unused-imports": ["error"],
-
-		// simple import rules
-		"simple-import-sort/exports": ["error"],
-		"simple-import-sort/imports": [
-			"error",
-			{
-				"groups": [
-					[
-						"^react.*",
-						"^next.*",
-						"^(?!src|.?./|.+\\.(s?css|less)$).*"
-					],
-					[
-						"^src"
-					],
-					[
-						"^\\.\\.(?!/?$)",
-						"^\\.\\./?$",
-						"^\\./(?=.*/)(?!/?$)",
-						"^\\.(?!/?$)",
-						"^\\./?$"
-					],
-					[
-						"^.+\\.(s?css|less)$"
-					]
-				]
-			}
-		]
+		"import/extensions": ["off"]
 	},
 	"settings": {
 		"import/resolver": {
