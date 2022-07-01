@@ -1,34 +1,35 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 👨🏽‍💻 Giới thiệu Root project sử dựng thư viện NextJS
 
-## Getting Started
+## 📌 Features
 
-First, run the development server:
+Dự án được xây dựng trên các thư viện sau:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+- [React 17x](https://reactjs.org)
+- [Nextjs 12x](https://nextjs.org/)
+- [Mui 5x](https://mui.com/)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+-Redux(Redux core/Redux-toolkit)
+-Eslint
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## 🧐 Getting Started
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+1. Cài đặt hoặc cập nhật phiên bản nodejs từ version 12 trở lên [Node.js](https://nodejs.org/)
+2. Tải xuống project bằng phương thức HTTPS/SSH
+3. Tạo thư mục .env(.env-local) copy từ file .env-example
+4. Sử dụng `npm` hoặc `yarn` để chạy project. ví dụ:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- NPM
+  - Chạy lệnh `npm install` để cài các package trong file package.json
+  - Chạy lệnh `npm run dev` để chạy dự án trên môi trường development
+  - Chạy lệnh `npm run build` và `npm run start` để chạy dự án trên môi trường production
 
-## Learn More
+5. Mở trình duyệt với đường dẫn [http://localhost:3000](http://localhost:3000) để tận hưởng thành quả 😉😎
 
-To learn more about Next.js, take a look at the following resources:
+## 📝 Learn More
+
+Để học thêm về NextJS, các bạn có thể vào các trang web:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Good luck 😉😉😉
