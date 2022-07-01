@@ -6,16 +6,23 @@ import {
 } from '@reduxjs/toolkit';
 import { createWrapper, HYDRATE } from 'next-redux-wrapper';
 import thunk from 'redux-thunk';
-import productSlice, { IProductState } from './product/productSlice';
-export interface RootState {
+import productSlice, {
+	initialState as productInitialState,
+	IProductState,
+} from './product/productSlice';
+export interface IState {
 	product: IProductState;
 }
+
+const initialState: IState = {
+	product: productInitialState,
+};
 
 const combinedReducer = combineReducers({
 	product: productSlice,
 });
 
-const masterReducer = (state: any, action: AnyAction) => {
+const masterReducer = (state: IState = initialState, action: AnyAction) => {
 	if (action.type === HYDRATE) {
 		return {
 			...state,
@@ -33,6 +40,10 @@ export const makeStore = (options?: ConfigureStoreOptions['preloadedState'] | un
 		devTools: process.env.NODE_ENV !== 'production',
 		middleware: [thunk],
 	});
+
+export const store = makeStore();
+
+export type RootState = ReturnType<typeof store.getState>;
 
 export const wrapper = createWrapper(makeStore, {
 	debug: process.env.NODE_ENV === 'development',

@@ -8,8 +8,6 @@ import { useSelector } from 'react-redux';
 const BogPage = () => {
 	const products = useSelector((state: RootState) => state.product.list);
 
-	console.log(products);
-
 	return (
 		<>
 			<Container
@@ -19,7 +17,7 @@ const BogPage = () => {
 					textAlign: 'center',
 				}}
 			>
-				Block SM
+				Block SM {products.length}
 			</Container>
 			<Container
 				maxWidth="xl"
