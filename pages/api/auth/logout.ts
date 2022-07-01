@@ -1,5 +1,5 @@
-import Cookies from "cookies";
-import { NextApiRequest, NextApiResponse } from "next";
+import Cookies from 'cookies';
+import { NextApiRequest, NextApiResponse } from 'next';
 
 export const config = {
   api: {
@@ -9,15 +9,15 @@ export const config = {
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<any>
+  res: NextApiResponse<any>,
 ) {
-  if (req.method !== "POST") {
-    return res.status(404).json({ message: "method not supported" });
+  if (req.method !== 'POST') {
+    return res.status(404).json({ message: 'method not supported' });
   }
 
   const cookies = new Cookies(req, res);
 
-  cookies.set("access_token");
+  cookies.set('access_token');
 
-  res.status(200).json({ message: "logout successfully" });
+  res.status(200).json({ message: 'logout successfully' });
 }

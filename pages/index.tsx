@@ -7,7 +7,6 @@ import Link from 'next/link';
 import styles from '../styles/Home.module.css';
 
 const Home: NextPageWithLayout = () => {
-	const a = '';
 	return (
 		<div className={styles.container}>
 			<Head>

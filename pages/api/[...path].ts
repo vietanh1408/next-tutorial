@@ -1,6 +1,6 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import httpProxy from "http-proxy";
-import Cookies from "cookies";
+import { NextApiRequest, NextApiResponse } from 'next';
+import httpProxy from 'http-proxy';
+import Cookies from 'cookies';
 
 export const config = {
   api: {
@@ -12,19 +12,19 @@ const proxy = httpProxy.createProxyServer();
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<any>
+  res: NextApiResponse<any>,
 ) {
   return new Promise((resolve) => {
     // convert cookies to header Authorization
     const cookies = new Cookies(req, res);
 
-    const accessToken = cookies.get("access_token");
+    const accessToken = cookies.get('access_token');
 
     if (accessToken) {
       req.headers.Authorization = `Bearer ${accessToken}`;
     }
 
-    req.headers.cookie = "";
+    req.headers.cookie = '';
 
     proxy.web(req, res, {
       target: process.env.NEXT_PUBLIC_API_URL,
@@ -32,7 +32,7 @@ export default function handler(
       selfHandleResponse: false,
     });
 
-    proxy.once("proxyRes", () => {
+    proxy.once('proxyRes', () => {
       resolve(true);
     });
   });
