@@ -1,8 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { MainLayout } from "../src/components/layout";
-import { NextPageWithLayout } from "../src/models";
+import { MainLayout } from "@/components/layout";
+import { NextPageWithLayout } from "@/models";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPageWithLayout = () => {

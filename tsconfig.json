@@ -14,10 +14,9 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "baseUrl": "src",
     "paths": {
-      "@/models/*": ["./src/models/*"],
-      "@/axios/*": ["./src/axios/*"],
-      "@/hooks/*": ["./src/hooks/*"]
+      "@/*": ["./*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

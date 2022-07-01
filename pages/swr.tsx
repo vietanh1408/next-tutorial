@@ -1,5 +1,5 @@
 import React from "react";
-import ProductDetail from "../src/components/swr/ProductDetail";
+import ProductDetail from "@/components/swr/ProductDetail";
 
 const swr = () => {
   return <ProductDetail />;

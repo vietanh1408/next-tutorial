@@ -1,5 +1,5 @@
 import { GetStaticProps } from "next";
-import AdminLayout from "../../src/components/layout/admin";
+import AdminLayout from "@/components/layout/admin";
 
 interface IArticle {
   author: string;

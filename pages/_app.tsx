@@ -1,7 +1,7 @@
-import axiosClient from "../src/axios/axios-client";
+import axiosClient from "@/api-configure/axios-client";
 import { SWRConfig } from "swr";
-import { EmptyLayout } from "../src/components/layout";
-import { AppPropsWithLayout } from "../src/models";
+import { EmptyLayout } from "@/components/layout";
+import { AppPropsWithLayout } from "@/models";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {

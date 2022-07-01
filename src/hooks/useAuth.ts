@@ -1,7 +1,7 @@
 import useSWR from "swr";
 import { PublicConfiguration } from "swr/dist/types";
-import { authApi } from "../axios";
-import { ILoginPayload } from "../models";
+import { authApi } from "@/api-configure";
+import { ILoginPayload } from "@/models/index";
 
 export const useAuth = (options?: Partial<PublicConfiguration>) => {
   const {
