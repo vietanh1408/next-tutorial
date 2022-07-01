@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  tutorial:
+    image: tutorial
+    build: .
+    volumes:
+      - ./pages:/app/pages
+      - ./public:/app/public
+      - ./styles:/app/styles
+    ports:
+      - 3000:3000

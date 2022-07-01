@@ -1,4 +1,4 @@
-# 👨🏽‍💻 Giới thiệu Root project sử dựng thư viện NextJS
+# 👨🏽‍💻 Giới thiệu Root project sử dụng thư viện NextJS
 
 ## 📌 Features
 
@@ -8,8 +8,11 @@ Dự án được xây dựng trên các thư viện sau:
 - [Nextjs 12x](https://nextjs.org/)
 - [Mui 5x](https://mui.com/)
 
--Redux(Redux core/Redux-toolkit)
--Eslint
+- Http-proxy
+- Axios
+- Redux(Redux core/Redux-toolkit)
+- Eslint
+- SWR
 
 ## 🧐 Getting Started
 
