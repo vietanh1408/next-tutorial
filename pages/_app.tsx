@@ -5,10 +5,9 @@ import theme from '@/utils/theme';
 import { CacheProvider } from '@emotion/react';
 import { CssBaseline } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
-import { Provider } from 'react-redux';
 import { SWRConfig } from 'swr';
 import axiosClient from '../src/api-configure/axios-client';
-import store from '../src/redux/store';
+import { wrapper } from '../src/redux/store';
 import '../styles/globals.css';
 
 // Client-side cache, shared for the whole session of the user in the browser.
@@ -21,24 +20,22 @@ function MyApp({
 }: AppPropsWithLayout) {
 	const Layout = Component.Layout ?? EmptyLayout;
 	return (
-		<Provider store={store}>
-			<CacheProvider value={emotionCache}>
-				<ThemeProvider theme={theme}>
-					<CssBaseline />
-					<SWRConfig
-						value={{
-							fetcher: (url) => axiosClient.get(url),
-							shouldRetryOnError: false,
-						}}
-					>
-						<Layout>
-							<Component {...pageProps} />
-						</Layout>
-					</SWRConfig>
-				</ThemeProvider>
-			</CacheProvider>
-		</Provider>
+		<CacheProvider value={emotionCache}>
+			<ThemeProvider theme={theme}>
+				<CssBaseline />
+				<SWRConfig
+					value={{
+						fetcher: (url) => axiosClient.get(url),
+						shouldRetryOnError: false,
+					}}
+				>
+					<Layout>
+						<Component {...pageProps} />
+					</Layout>
+				</SWRConfig>
+			</ThemeProvider>
+		</CacheProvider>
 	);
 }
 
-export default MyApp;
+export default wrapper.withRedux(MyApp);

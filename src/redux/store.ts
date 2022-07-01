@@ -1,22 +1,39 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-
-export function makeStore() {
-	return configureStore({
-		reducer: {},
-	});
+import {
+	AnyAction,
+	combineReducers,
+	configureStore,
+	ConfigureStoreOptions,
+} from '@reduxjs/toolkit';
+import { createWrapper, HYDRATE } from 'next-redux-wrapper';
+import thunk from 'redux-thunk';
+import productSlice, { IProductState } from './product/productSlice';
+export interface RootState {
+	product: IProductState;
 }
 
-const store = makeStore();
+const combinedReducer = combineReducers({
+	product: productSlice,
+});
 
-export type AppState = ReturnType<typeof store.getState>;
+const masterReducer = (state: any, action: AnyAction) => {
+	if (action.type === HYDRATE) {
+		return {
+			...state,
+			...action.payload,
+		};
+	} else {
+		return combinedReducer(state, action);
+	}
+};
 
-export type AppDispatch = typeof store.dispatch;
+export const makeStore = (options?: ConfigureStoreOptions['preloadedState'] | undefined) =>
+	configureStore({
+		reducer: masterReducer,
+		...options,
+		devTools: process.env.NODE_ENV !== 'production',
+		middleware: [thunk],
+	});
 
-export type AppThunk<ReturnType = void> = ThunkAction<
-	ReturnType,
-	AppState,
-	unknown,
-	Action<string>
->;
-
-export default store;
+export const wrapper = createWrapper(makeStore, {
+	debug: process.env.NODE_ENV === 'development',
+});

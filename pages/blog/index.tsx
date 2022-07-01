@@ -1,8 +1,15 @@
-import React from 'react';
 import { MainLayout } from '@/components/index';
+import { getAll } from '@/redux/product/productSlice';
+import { RootState, wrapper } from '@/redux/store';
 import { Container } from '@mui/material';
+import { GetServerSideProps } from 'next';
+import { useSelector } from 'react-redux';
 
 const BogPage = () => {
+	const products = useSelector((state: RootState) => state.product.list);
+
+	console.log(products);
+
 	return (
 		<>
 			<Container
@@ -25,5 +32,19 @@ const BogPage = () => {
 };
 
 BogPage.Layout = MainLayout;
+
+export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(
+	(store) => async () => {
+		store.dispatch(getAll());
+
+		const products = store.getState().product.list;
+
+		return {
+			props: {
+				products,
+			},
+		};
+	},
+);
 
 export default BogPage;
