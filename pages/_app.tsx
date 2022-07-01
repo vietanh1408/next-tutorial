@@ -1,10 +1,12 @@
 import { EmptyLayout } from '@/components/layout';
 import { AppPropsWithLayout } from '@/models/index';
+import { store, wrapper } from '@/redux/store';
 import createEmotionCache from '@/utils/create-emotion-cache';
 import theme from '@/utils/theme';
 import { CacheProvider } from '@emotion/react';
 import { CssBaseline } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
+import { Provider } from 'react-redux';
 import { SWRConfig } from 'swr';
 import axiosClient from '../src/api-configure/axios-client';
 import '../styles/globals.css';
@@ -19,22 +21,24 @@ function MyApp({
 }: AppPropsWithLayout) {
 	const Layout = Component.Layout ?? EmptyLayout;
 	return (
-		<CacheProvider value={emotionCache}>
-			<ThemeProvider theme={theme}>
-				<CssBaseline />
-				<SWRConfig
-					value={{
-						fetcher: (url) => axiosClient.get(url),
-						shouldRetryOnError: false,
-					}}
-				>
-					<Layout>
-						<Component {...pageProps} />
-					</Layout>
-				</SWRConfig>
-			</ThemeProvider>
-		</CacheProvider>
+		<Provider store={store}>
+			<CacheProvider value={emotionCache}>
+				<ThemeProvider theme={theme}>
+					<CssBaseline />
+					<SWRConfig
+						value={{
+							fetcher: (url) => axiosClient.get(url),
+							shouldRetryOnError: false,
+						}}
+					>
+						<Layout>
+							<Component {...pageProps} />
+						</Layout>
+					</SWRConfig>
+				</ThemeProvider>
+			</CacheProvider>
+		</Provider>
 	);
 }
 
-export default MyApp;
+export default wrapper.withRedux(MyApp);

@@ -13,9 +13,6 @@ const Auth: React.FC<IAuthProps> = ({ children }: IAuthProps) => {
 
 	const router = useRouter();
 
-	console.log('firstLoading', firstLoading);
-	console.log('profile', profile);
-
 	useEffect(() => {
 		if (!firstLoading && !profile?.user) {
 			router.push('/login');

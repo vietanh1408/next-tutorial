@@ -1,8 +1,17 @@
-import React from 'react';
 import { MainLayout } from '@/components/index';
+import { ProductActionType } from '@/redux/actions/product';
+import { RootState, wrapper } from '@/redux/store';
 import { Container } from '@mui/material';
+import { GetServerSideProps } from 'next';
+import { useSelector } from 'react-redux';
 
-const BogPage = () => {
+interface BlogPageProps {
+	products: any[];
+}
+
+const BlogPage = (props: BlogPageProps) => {
+	const products = useSelector((state: RootState) => state.product.list);
+
 	return (
 		<>
 			<Container
@@ -12,7 +21,7 @@ const BogPage = () => {
 					textAlign: 'center',
 				}}
 			>
-				Block SM
+				Block SM {products.length}
 			</Container>
 			<Container
 				maxWidth="xl"
@@ -24,6 +33,20 @@ const BogPage = () => {
 	);
 };
 
-BogPage.Layout = MainLayout;
+BlogPage.Layout = MainLayout;
 
-export default BogPage;
+export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(
+	(store) => async () => {
+		store.dispatch({ type: ProductActionType.GET_ALL });
+
+		const products = store.getState().product.list;
+
+		return {
+			props: {
+				products,
+			},
+		};
+	},
+);
+
+export default BlogPage;
