@@ -1,25 +1,25 @@
-import { useAuth } from '../../hooks/useAuth';
 import { useRouter } from 'next/router';
 import React, { ReactElement, ReactNode, useEffect } from 'react';
+import { useAuth } from '../../hooks/useAuth';
 
 interface IAuthProps {
 	children: ReactElement | ReactNode | JSX.Element;
 }
 
 const Auth: React.FC<IAuthProps> = ({ children }: IAuthProps) => {
-	const { profile, firstLoading }: { profile: any; firstLoading: boolean } = useAuth({
+	const { profile, firstLoading } = useAuth({
 		revalidateOnMount: true,
 	});
 
 	const router = useRouter();
 
 	useEffect(() => {
-		if (!firstLoading && !profile?.user) {
+		if (!firstLoading && !profile) {
 			router.push('/login');
 		}
 	}, [router, profile, firstLoading]);
 
-	if (!profile?.user) {
+	if (!profile) {
 		return <p>Loading...</p>;
 	}
 

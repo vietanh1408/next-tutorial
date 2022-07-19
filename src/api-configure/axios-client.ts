@@ -21,7 +21,7 @@ axiosClient.interceptors.response.use(
 		return response.data;
 	},
 	(error: any) => {
-		return Promise.reject(error.response.data);
+		return Promise.reject(error?.response?.data);
 	},
 );
 

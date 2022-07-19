@@ -12,8 +12,8 @@ const LoginPage: React.FC = () => {
 	const handleLogin = async () => {
 		try {
 			await login({
-				username: 'test01',
-				password: '12345',
+				username: 'vietanh1408',
+				password: 'vietanh1408',
 			});
 
 			router.push('/');
@@ -27,7 +27,7 @@ const LoginPage: React.FC = () => {
 	};
 
 	useEffect(() => {
-		if ((profile as any)?.user) {
+		if (profile) {
 			router.push('/');
 		}
 	}, [router, profile, firstLoading]);
@@ -36,7 +36,7 @@ const LoginPage: React.FC = () => {
 		<div>
 			<h1>Login page</h1>
 
-			{profile ? <div>{(profile as any)?.user?.username}</div> : <></>}
+			{profile ? <div>{profile?.username}</div> : <></>}
 
 			<button onClick={handleLogin}>Login</button>
 			<button onClick={handleLogOut}>Log Out</button>

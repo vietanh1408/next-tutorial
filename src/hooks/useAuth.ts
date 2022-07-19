@@ -1,7 +1,8 @@
+import { ILoginPayload } from '@/models/index';
 import useSWR from 'swr';
 import { PublicConfiguration } from 'swr/dist/types';
 import { authApi } from '../api-configure/index';
-import { ILoginPayload } from '@/models/index';
+import { IProfileResponse } from './../models/auth';
 
 export const useAuth = (options?: Partial<PublicConfiguration>) => {
 	const {
@@ -27,7 +28,7 @@ export const useAuth = (options?: Partial<PublicConfiguration>) => {
 	};
 
 	return {
-		profile,
+		profile: (profile as IProfileResponse)?.user,
 		error,
 		login,
 		logout,
