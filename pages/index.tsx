@@ -16,7 +16,7 @@ const Home: NextPageWithLayout = () => {
 			</Head>
 
 			<Box sx={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
-				<Link href={'/blog'}>Blog</Link>
+				<Link href={'/products'}>Product</Link>
 				<Link href={'/work'}>Work</Link>
 				<Link href={'/login'}>Login</Link>
 			</Box>

@@ -1,7 +1,7 @@
 import { ILoginPayload } from '@/models/index';
 import useSWR from 'swr';
 import { PublicConfiguration } from 'swr/dist/types';
-import { authApi } from '../api-configure/index';
+import { authApi } from '../app/index';
 import { IProfileResponse } from './../models/auth';
 
 export const useAuth = (options?: Partial<PublicConfiguration>) => {

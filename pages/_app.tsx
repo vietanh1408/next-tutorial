@@ -6,7 +6,7 @@ import { CacheProvider } from '@emotion/react';
 import { CssBaseline } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import { SWRConfig } from 'swr';
-import axiosClient from '../src/api-configure/axios-client';
+import axiosClient from '../src/app/axios-client';
 import { wrapper } from '../src/redux/store';
 import '../styles/globals.css';
 
