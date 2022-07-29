@@ -1,0 +1,28 @@
+.table-card .ant-card-head {
+    border: none;
+}
+
+.table-card .ant-card-extra {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.table-card .ant-btn {
+    font-size: 16px;
+
+    
+}
+
+.table-card .ant-btn:hover {
+    color: red;
+}
+
+.table-card .ant-btn:not(:last-child) {
+    margin-right: 8px;
+}
+
+.table-card .ant-card-body {
+    padding: 24px 0 24px 7px;
+}

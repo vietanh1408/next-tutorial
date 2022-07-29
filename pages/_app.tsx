@@ -1,8 +1,10 @@
-import axiosClient from "@/api-configure/axios-client";
-import { SWRConfig } from "swr";
+import axiosClient from "@/app/axios-client";
 import { EmptyLayout } from "@/components/layout";
 import { AppPropsWithLayout } from "@/models";
+import { SWRConfig } from "swr";
+import "antd/dist/antd.css";
 import "../styles/globals.css";
+import "../styles/custom.css";
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const Layout = Component.Layout ?? EmptyLayout;
